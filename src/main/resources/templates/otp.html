@@ -1,0 +1,80 @@
+<!Doctype html>
+<html lang="en"
+      xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>OTP Verification</title>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" class="block-content existing-content" data-role="block-item-content"
+       style="margin: 10px auto; font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, 'sans-serif';"
+       width="600">
+    <tbody>
+    <tr>
+        <td width="600">
+            <div class="js-template-editor">
+                <table cellpadding="0" cellspacing="0" class="main-table"
+                       style="border: 0.5px solid rgba(43, 135, 104, 0.7);" width="600px">
+                    <tbody>
+                    <tr style="border-bottom: 0.5px solid rgba(43, 135, 104, 0.5); display: flex;flex-direction: row;align-items: flex-start; padding: 15px 20px;background: #F8F8FA;">
+                        <td style="display:inline-flex;"><img
+                                src="https://o.remove.bg/downloads/9fefc24e-70f2-4a0f-bc20-9c3751b1563d/NCH-Logo1_1495519834-removebg-preview.png"
+                                style="margin:auto 5px;width:100px;padding-bottom:4px;padding-top:2px" alt="Uniteliving"
+                                title="Uniteliving" class="ml-2fr-fic fr-dii"></td>
+                        <td style="font-size:22px;color:#333333;margin-left:75px;font-weight: 600;font-style: normal;line-height: 30px;margin-top:8px">
+                            Verify Your Account
+                        </td>
+                    </tr>
+
+                    <tr bgcolor="#FFFFFF">
+                        <td colspan="2">
+                            <div style="padding:20px;font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; font-size: 14px; margin:20px 15px;color:#1b1b1b">
+
+                                <div>
+                                    <a th:href="${verifyUrl}" th:text="${verifyUrl}"></a>
+                                </div>
+                                <div>
+                                    <p>Thank you for your user registration. Here is the code to verify your
+                                        Account:</p>
+                                    <h3 th:text="${otp}"></h3>
+                                    <p>You can also click the button below and go directly to create password.<br>&nbsp;
+                                    </p>
+                                    <table align="center" border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                        <tr>
+                                            <td align="center" bgcolor="#881B16" style="border-radius: 3px;"><a
+                                                    draggable="false" href="{{verify_url}}"
+                                                    style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; text-decoration: none;border-radius: 3px; padding: 12px 18px; border: 1px solid #1bb9b8; display: inline-block;"
+                                                    target="_blank">Verify</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div style="padding:20px; text-align:center; background-color: #E5E5E5;border-top:0.5px solid rgba(43, 135, 104, 0.5)">
+                                <a href="https://www.facebook.com/uniteliving" target="_blank"><img
+                                        src="https://uninite.imgix.net/logo/email/facebook.png" alt="Facebook"
+                                        style="height: 35px; max-width: 35px;margin:0 5px" class="fr-fic fr-dii"></a> <a
+                                    href="https://twitter.com/uniteliving" target="_blank"><img
+                                    src="https://uninite.imgix.net/logo/email/twitter.png" alt="Twitter"
+                                    style="height: 35px; max-width: 35px;margin:0 5px" class="fr-fic fr-dii"></a> <a
+                                    href="https://www.youtube.com/channel/UCs1JoY5xbNW1Oy0f2Y2KSTQ" target="_blank"><img
+                                    src="https://uninite.imgix.net/logo/email/youtube.png" alt="Instagram."
+                                    style="height: 35px; max-width: 35px;margin:0 5px" class="fr-fic fr-dii"></a> <a
+                                    href="https://www.linkedin.com/company/uniteliving/" target="_blank"><img
+                                    src="https://uninite.imgix.net/logo/email/linked_in.png" alt="Google Plus."
+                                    style="height: 35px; max-width: 35px;margin:0 5px" class="fr-fic fr-dii"></a></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
