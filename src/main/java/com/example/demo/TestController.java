@@ -164,7 +164,9 @@ public class TestController {
     }
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map auth) throws JsonProcessingException {
-        String response = restTemplate.postForObject("http://localhost:8082/v1/customer/login", auth,String.class);
+        String response =
+                restTemplate.
+                        postForObject("http://localhost:8082/v1/customer/login", auth,String.class);
         Map map = new ObjectMapper().readValue(response,Map.class);
         return new ResponseEntity<>(map,HttpStatus.OK);
     }

@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.filter.GenericFilterBean;
+import org.thymeleaf.util.StringUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class AuthFilter extends GenericFilterBean {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest http = (HttpServletRequest) servletRequest;
         String header = http.getHeader("Authorization");
-        if (header.contains("Bearer")) {
+        if (!StringUtils.isEmpty(header) && header.contains("Bearer")) {
             String token = header.substring(7);
             HttpHeaders httpHeaders = new HttpHeaders();
             httpHeaders.setContentType(MediaType.APPLICATION_JSON);
@@ -40,7 +41,7 @@ public class AuthFilter extends GenericFilterBean {
             Map userDetails = new ObjectMapper().readValue(response, Map.class);
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, userDetails.get("username"), new ArrayList<>());
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-            filterChain.doFilter(servletRequest, servletResponse);
         }
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 }
