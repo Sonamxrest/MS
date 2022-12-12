@@ -54,7 +54,7 @@ public class TestController {
         email.setSubject("Otp Verification");
         email.setTemplate("index.html");
         emailSenderService.sendHtmlMessage(email);
-        return "otp";
+        return "test";
     }
 
     @GetMapping("/invoice")
