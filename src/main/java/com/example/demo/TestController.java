@@ -50,14 +50,9 @@ public class TestController {
         model.addAttribute("verifyUrl", "http://localhost:8080");
         Email email = new Email();
         email.setTo("sonamshrestha@nchl.com.np");
-        email.setFrom("61a327544445b0@inbox.mailtrap.io");
-        email.setSubject("Welcome Email ");
+        email.setFrom("connectips@nchl.com.np");
+        email.setSubject("Otp Verification");
         email.setTemplate("index.html");
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("name", "Ashish");
-        properties.put("subscriptionDate", LocalDate.now().toString());
-        properties.put("technologies", Arrays.asList("Python", "Go", "C#"));
-        email.setProperties(properties);
         emailSenderService.sendHtmlMessage(email);
         return "otp";
     }
@@ -157,17 +152,18 @@ public class TestController {
 
     @GetMapping("/customer")
     public ResponseEntity<?> getCustomer() throws JsonProcessingException {
-        String response = restTemplate.getForEntity("http://localhost:8082/v1/customer/getByAll",String.class).getBody();
+        String response = restTemplate.getForEntity("http://localhost:8082/v1/customer/getByAll", String.class).getBody();
 
-        List map = new ObjectMapper().readValue(response,List.class);
-        return new ResponseEntity<>(map,HttpStatus.OK);
+        List map = new ObjectMapper().readValue(response, List.class);
+        return new ResponseEntity<>(map, HttpStatus.OK);
     }
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map auth) throws JsonProcessingException {
         String response =
                 restTemplate.
-                        postForObject("http://localhost:8082/v1/customer/login", auth,String.class);
-        Map map = new ObjectMapper().readValue(response,Map.class);
-        return new ResponseEntity<>(map,HttpStatus.OK);
+                        postForObject("http://localhost:8082/v1/customer/login", auth, String.class);
+        Map map = new ObjectMapper().readValue(response, Map.class);
+        return new ResponseEntity<>(map, HttpStatus.OK);
     }
 }
