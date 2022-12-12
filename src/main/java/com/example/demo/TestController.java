@@ -42,19 +42,20 @@ public class TestController {
     }
 
     @GetMapping("/otp")
-    public String otp(Model model) throws MessagingException {
+    public ModelAndView otp() throws MessagingException {
+        ModelAndView model = new ModelAndView("test");
         Users u = new Users();
         u.setName("Rajesh");
         u.setEmail("Hamal");
-        model.addAttribute("user", u);
-        model.addAttribute("verifyUrl", "http://localhost:8080");
+        u.setOtp("0142231");
+        model.addObject("user", u);
         Email email = new Email();
         email.setTo("sonamshrestha@nchl.com.np");
         email.setFrom("connectips@nchl.com.np");
         email.setSubject("Otp Verification");
         email.setTemplate("index.html");
-        emailSenderService.sendHtmlMessage(email);
-        return "test";
+        emailSenderService.sendHtmlMessage(email,u);
+        return model;
     }
 
     @GetMapping("/invoice")

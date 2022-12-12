@@ -1,5 +1,5 @@
 <!Doctype html>
-<html lang="en-US">
+<html lang="en-US" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
@@ -14,6 +14,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 
@@ -22,12 +32,12 @@
        style="@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', sans-serif;margin-top:100px;">
     <tr>
         <td>
-            <table style="background-color: #292b29; max-width:670px;
+            <table style="background-color: #252938; max-width:670px;
              margin:0 auto;" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr style="width : 100%; background-color:#005ca1">
                     <td style="border: 0.2px;">
                         <br>
-                        <table width="95%" border="0" align="center"
+                        <table border="0" align="center"
                                cellpadding="0" cellspacing="0"
                                style="max-width:570px;background:#fff;
                                 border-radius:3px;
@@ -39,21 +49,20 @@
                                 <td style="padding:0 35px;">
                                     <h1 style="color:#1d9bf0; font-weight:500; margin-top:2px;font-size:15px;font-family:Arial, Helvetica, sans-serif;text-align:center ; line-height:2">
                                         <span>
-  <img width="250"
-       src="https://nchl.com.np/uploads/news/NCH-Logo1__1617163562.jpg"
-  >
-<!--                                            <img width="250" height="200"-->
-<!--       src="https://connectips.com/knowmore/image/cips_logo.png"-->
-<!--  >-->
-
+                                                <img width="250"
+                                                     src="https://nchl.com.np/uploads/news/NCH-Logo1__1617163562.jpg"
+                                                >
                                         </span></h1>
+                                    <hr style="height:10px; background-color: red;">
                                     <h1 style="color:#455056; font-weight:530; margin:0;font-size:15px;font-family:'Rubik',sans-serif; text-align:start;  ">
-                                        Hi, </h1>
+                                        Hi, <b th:text="(${u.name})"></b></h1>
                                     <h1 style="color:#455056; font-weight:500; margin-top:10px;font-size:15px;font-family:'Rubik',sans-serif;text-align:justify; line-height:2">
-                                        Congratulations Piyush Yadav on signing up at NCHL. Please use the following four digits
+                                        Congratulations on signing up at NCHL. Please use the following four digits
                                         numerical One Time Password to validate your email address.</h1><br>
                                     <h1 style="color:#455056; font-weight:500; margin-top:10px;font-size:16px;font-family:Arial, Helvetica, sans-serif;text-align:center ; line-height:2">
-                                        <span style="font-weight:400; color:#0c5394"><strong>OTP - 554563</strong></span></h1><br>
+                                        <span style="font-weight:400; color:#0c5394"><strong>OTP - </strong> <strong
+                                                th:text="${u.otp}"></strong></span>
+                                    </h1><br>
 
                                     <span style=" margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;"></span>
                                     <h1 style="color:#455056; font-weight:500; margin-top:2px;font-size:15px;font-family:'Rubik',sans-serif;text-align:justify; line-height:2">
@@ -67,22 +76,26 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="height:100px; width : 100%; background-color:#292b29">
+                                <td style="width : 100%; height:auto; background-color:#252938">.
                                     <br><br>
-                                    <i class="fa fa-facebook-f" style="font-size:24px; color:white"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <i class="fa fa-linkedin" style="font-size:24px; color:white"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <i class="fa fa-twitter" style="font-size:24px; color:white"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <i class="fa fa-youtube-play" style="font-size:24px ;color:white"></i>
-
+                                    <img src="https://www.freepnglogos.com/uploads/facebook-logo-icon/facebook-logo-icon-file-facebook-icon-svg-wikimedia-commons-4.png"
+                                         style="height:28px; width:28px; color:white">&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png"
+                                         style="height:28px; width:28px; color:white">&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"
+                                         style="height:28px; width:28px; color:white">&nbsp;&nbsp;&nbsp;&nbsp;
                                     <br><br>
-                                    <h1 style="color:white;padding:0 35px; font-weight:500; margin-top:2px;font-size:15px;font-family:'Rubik',sans-serif;vertical-align:start; line-height:2">
-                                        Nepal Clearing House, Kamaladi , Kathmandu ,
+                                    <h1 style="color:white;padding:0 35px; font-weight:500; margin-top:2px;font-size:15px;font-family:'Rubik',sans-serif;text-align:end; line-height:2">
+                                        Nepal Clearing House,
+                                        Kamaladi, Kathmandu,
                                         Nepal, +01-5566456 </h1>
                                     <br>
+
                                 </td>
                             </tr>
                         </table>
                     </td>
+                </tr>
                 <tr>
                     <td style="height:20px;">&nbsp;</td>
                 </tr>
@@ -93,3 +106,15 @@
 </body>
 
 </html>
+
+<style>
+    body {
+  background-color:#eee;
+  font-family:Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+
+
+</style>
+
